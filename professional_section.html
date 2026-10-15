@@ -3,7 +3,7 @@
   <div class="mp-top">
     <div class="mp-title">
       <h1>Bakat Profesional</h1>
-      <p>Struktur dan pipeline profesional kejuruteraan, teknologi dan teknikal berdasarkan rekod badan profesional.</p>
+      <p>Trend pendaftaran dan struktur profesional kejuruteraan, teknologi dan teknikal berdasarkan rekod rasmi BEM dan MBOT.</p>
     </div>
     <div class="mp-tabs">
       <button class="mp-tab active" data-mpview="bem">BEM · Kejuruteraan</button>
@@ -13,34 +13,45 @@
 
   <div class="mp-view active" id="mp-bem">
     <div class="mp-kpis">
-      <div class="mp-kpi"><div class="label">Graduate Engineer</div><div class="value">195,521</div><div class="sub">BEM 2023</div></div>
-      <div class="mp-kpi"><div class="label">Professional Engineer</div><div class="value">23,595</div><div class="sub">termasuk PEPC</div></div>
-      <div class="mp-kpi"><div class="label">PEPC</div><div class="value">10,788</div><div class="sub">Practising Certificate</div></div>
-      <div class="mp-kpi"><div class="label">Engineering Technologist</div><div class="value">15,269</div><div class="sub">BEM 2023</div></div>
-      <div class="mp-kpi"><div class="label">Inspector of Works</div><div class="value">9,782</div><div class="sub">BEM 2023</div></div>
+      <div class="mp-kpi"><div class="label">Graduate Engineer</div><div class="value">195,521</div><div class="sub">stok berdaftar · 2023</div></div>
+      <div class="mp-kpi"><div class="label">Professional Engineer</div><div class="value">23,595</div><div class="sub">termasuk PEPC · 2023</div></div>
+      <div class="mp-kpi"><div class="label">PEPC</div><div class="value">10,788</div><div class="sub">stok berdaftar · 2023</div></div>
+      <div class="mp-kpi"><div class="label">Engineering Technologist</div><div class="value">15,269</div><div class="sub">stok berdaftar · 2023</div></div>
+      <div class="mp-kpi"><div class="label">Inspector of Works</div><div class="value">9,782</div><div class="sub">stok berdaftar · 2023</div></div>
     </div>
-    <div class="mp-layout">
+
+    <div class="mp-filterbar">
+      <div class="mp-filter"><label for="bemCategory">Jenis pendaftaran</label><select id="bemCategory">
+        <option value="GE">Graduate Engineer (GE)</option>
+        <option value="PE">Professional Engineer (PE)</option>
+        <option value="PEPC">PE with Practising Certificate (PEPC)</option>
+        <option value="ET">Engineering Technologist (ET)</option>
+        <option value="IOW">Inspector of Works (IOW)</option>
+      </select></div>
+      <div class="mp-filter"><label for="bemYear">Tahun fokus</label><select id="bemYear"><option value="ALL">Semua tahun</option></select></div>
+      <div class="mp-filter"><label for="bemField">Bidang keutamaan</label><select id="bemField">
+        <option value="ALL">Semua bidang</option><option value="CIVIL">Awam</option><option value="MECH">Mekanikal</option>
+        <option value="ELEC">Elektrikal</option><option value="CHEM">Kimia</option><option value="OTHER">Lain-lain</option>
+      </select></div>
+      <div class="mp-filter-note">Klik titik graf atau tukar penapis untuk melihat nilai tahun dan bidang.</div>
+    </div>
+
+    <div class="mp-layout mp-layout-interactive">
       <div class="mp-panel">
-        <h3>Struktur Pipeline Profesional</h3>
-        <div class="desc">Saiz lapisan pendaftaran profesional; bukan kadar conversion cohort.</div>
-        <div class="mp-pipe">
-          <div class="mp-node"><b>195.5K</b><span>Graduate Engineer</span></div><div class="mp-arrow">→</div>
-          <div class="mp-node"><b>23.6K</b><span>Professional Engineer</span></div><div class="mp-arrow">→</div>
-          <div class="mp-node"><b>10.8K</b><span>PEPC</span></div>
+        <div class="mp-panel-head"><div><h3>Trend Pendaftaran Baharu Tahunan</h3><div class="desc" id="bemTrendDesc">Graduate Engineer · 2010–2023</div></div><div class="mp-badge" id="bemFocusBadge">Semua tahun</div></div>
+        <div class="mp-svg-chart" id="bemChart" aria-label="Trend pendaftaran BEM"></div>
+        <div class="mp-focus-row">
+          <div><span>Nilai dipilih</span><b id="bemFocusValue">17,834</b></div>
+          <div><span>Tahun</span><b id="bemFocusYear">2023</b></div>
+          <div><span>Kategori</span><b id="bemFocusCategory">GE</b></div>
         </div>
-        <div class="mp-insight"><b>Isyarat Analitik.</b> Lapisan Graduate Engineer jauh lebih besar daripada lapisan profesional. Data agregat sesuai untuk membaca struktur pipeline, tetapi pengukuran GE→PE sebenar memerlukan data longitudinal individu.</div>
+        <div class="mp-footnote">Nota: Trend ini ialah pendaftaran baharu tahunan, bukan stok tenaga kerja aktif. Siri PEPC 2015–2016 dipengaruhi perubahan rejim pendaftaran.</div>
       </div>
       <div class="mp-panel">
-        <h3>Graduate Engineer Mengikut Disiplin</h3>
-        <div class="desc">Komposisi 195,521 Graduate Engineer berdaftar pada 2023.</div>
-        <div class="mp-bars">
-          <div class="mp-bar-row"><span>Awam</span><div class="mp-bar-track"><div class="mp-bar-fill" style="width:100%"></div></div><span class="mp-bar-val">59,909</span></div>
-          <div class="mp-bar-row"><span>Elektrikal</span><div class="mp-bar-track"><div class="mp-bar-fill" style="width:91.8%"></div></div><span class="mp-bar-val">54,984</span></div>
-          <div class="mp-bar-row"><span>Mekanikal</span><div class="mp-bar-track"><div class="mp-bar-fill" style="width:91.1%"></div></div><span class="mp-bar-val">54,576</span></div>
-          <div class="mp-bar-row"><span>Kimia</span><div class="mp-bar-track"><div class="mp-bar-fill" style="width:43.4%"></div></div><span class="mp-bar-val">25,979</span></div>
-          <div class="mp-bar-row"><span>Lain-lain</span><div class="mp-bar-track"><div class="mp-bar-fill" style="width:.2%"></div></div><span class="mp-bar-val">73</span></div>
-        </div>
-        <div class="mp-footnote">Sumber: Laporan Tahunan BEM 2023. Pendaftaran tidak semestinya mewakili tenaga kerja aktif.</div>
+        <div class="mp-panel-head"><div><h3>Profil Bidang Kejuruteraan</h3><div class="desc" id="bemFieldDesc">Graduate Engineer mengikut disiplin · stok berdaftar 2023</div></div><div class="mp-badge soft" id="bemFieldBadge">Semua bidang</div></div>
+        <div class="mp-bars" id="bemFieldBars"></div>
+        <div class="mp-insight" id="bemInsight"><b>Isyarat Analitik.</b> Gunakan penapis kategori dan bidang untuk membezakan pertumbuhan pendaftaran tahunan daripada struktur stok profesional.</div>
+        <div class="mp-footnote" id="bemFieldNote">Sumber: Laporan Tahunan BEM 2023 dan Laporan Tahunan BEM 2022. Pecahan bidang tidak tersedia sebagai siri tahunan lengkap bagi semua kategori.</div>
       </div>
     </div>
   </div>
@@ -48,42 +59,53 @@
   <div class="mp-view" id="mp-mbot">
     <div class="mp-kpis">
       <div class="mp-kpi"><div class="label">Jumlah Pendaftaran</div><div class="value">95,630</div><div class="sub">sehingga 2024</div></div>
-      <div class="mp-kpi"><div class="label">Teknologis Berijazah</div><div class="value">56,501</div><div class="sub">Graduate Technologist</div></div>
-      <div class="mp-kpi"><div class="label">Teknologis Profesional</div><div class="value">23,705</div><div class="sub">Ts.</div></div>
-      <div class="mp-kpi"><div class="label">Juruteknik Berkelayakan</div><div class="value">12,208</div><div class="sub">Qualified Technician</div></div>
-      <div class="mp-kpi"><div class="label">Juruteknik Bertauliah</div><div class="value">3,216</div><div class="sub">Tc.</div></div>
+      <div class="mp-kpi"><div class="label">Teknologis Berijazah</div><div class="value">56,501</div><div class="sub">Graduate Technologist · GT</div></div>
+      <div class="mp-kpi"><div class="label">Teknologis Profesional</div><div class="value">23,705</div><div class="sub">Professional Technologist · Ts.</div></div>
+      <div class="mp-kpi"><div class="label">Juruteknik Berkelayakan</div><div class="value">12,208</div><div class="sub">Qualified Technician · QT</div></div>
+      <div class="mp-kpi"><div class="label">Juruteknik Bertauliah</div><div class="value">3,216</div><div class="sub">Certified Technician · Tc.</div></div>
     </div>
-    <div class="mp-layout">
+
+    <div class="mp-filterbar">
+      <div class="mp-filter"><label for="mbotCategory">Jenis pengiktirafan</label><select id="mbotCategory">
+        <option value="TOTAL">Jumlah keseluruhan</option><option value="GT">Teknologis Berijazah (GT)</option>
+        <option value="TS">Teknologis Profesional (Ts.)</option><option value="QT">Juruteknik Berkelayakan (QT)</option>
+        <option value="TC">Juruteknik Bertauliah (Tc.)</option>
+      </select></div>
+      <div class="mp-filter"><label for="mbotYear">Tahun fokus</label><select id="mbotYear"><option value="ALL">Semua tahun</option></select></div>
+      <div class="mp-filter"><label for="mbotField">Bidang teknologi</label><select id="mbotField">
+        <option value="ALL">Semua bidang</option><option>E&E</option><option>ICT</option><option>Cyber Security</option>
+        <option>Manufacturing & Industrial</option><option>Green Technology</option><option>Aerospace & Aviation</option>
+        <option>Building & Construction</option><option>Oil & Gas</option><option>Health & Medical</option>
+        <option>Transportation & Logistics</option><option>Biotechnology</option><option>Maritime</option>
+      </select></div>
+      <div class="mp-filter-note">Bidang menukar konteks paparan; laporan tahunan tidak menerbitkan siri pendaftar tahunan mengikut bidang.</div>
+    </div>
+
+    <div class="mp-layout mp-layout-interactive">
       <div class="mp-panel">
-        <h3>Pertumbuhan Pendaftaran MBOT 2017–2024</h3>
-        <div class="desc">Jumlah pendaftaran meningkat daripada 1,842 kepada 95,630.</div>
-        <div class="mp-trend">
-          <div class="mp-yearbar"><b>1.8K</b><i style="height:3%"></i><span>2017</span></div>
-          <div class="mp-yearbar"><b>9.9K</b><i style="height:10%"></i><span>2018</span></div>
-          <div class="mp-yearbar"><b>16.1K</b><i style="height:17%"></i><span>2019</span></div>
-          <div class="mp-yearbar"><b>27.7K</b><i style="height:29%"></i><span>2020</span></div>
-          <div class="mp-yearbar"><b>46.8K</b><i style="height:49%"></i><span>2021</span></div>
-          <div class="mp-yearbar"><b>65.2K</b><i style="height:68%"></i><span>2022</span></div>
-          <div class="mp-yearbar"><b>79.0K</b><i style="height:83%"></i><span>2023</span></div>
-          <div class="mp-yearbar"><b>95.6K</b><i style="height:100%"></i><span>2024</span></div>
+        <div class="mp-panel-head"><div><h3>Trend Pendaftaran Mengikut Pengiktirafan</h3><div class="desc" id="mbotTrendDesc">Jumlah keseluruhan · 2017–2024</div></div><div class="mp-badge" id="mbotFocusBadge">Semua tahun</div></div>
+        <div class="mp-svg-chart" id="mbotChart" aria-label="Trend pendaftaran MBOT"></div>
+        <div class="mp-focus-row">
+          <div><span>Nilai dipilih</span><b id="mbotFocusValue">95,630</b></div>
+          <div><span>Tahun</span><b id="mbotFocusYear">2024</b></div>
+          <div><span>Pengiktirafan</span><b id="mbotFocusCategory">Jumlah</b></div>
         </div>
-        <div class="mp-track-grid">
-          <div class="mp-track"><b style="font-size:9px;color:#536c84">Laluan Teknologis</b><div class="flow"><b>56.5K</b><span>GT →</span><b>23.7K</b><span>Ts.</span></div></div>
-          <div class="mp-track"><b style="font-size:9px;color:#536c84">Laluan Juruteknik</b><div class="flow"><b>12.2K</b><span>QT →</span><b>3.2K</b><span>Tc.</span></div></div>
-        </div>
+        <div class="mp-footnote">Sumber trend kategori 2017–2023: Laporan Tahunan MBOT 2023; nilai 2024: Laporan Tahunan MBOT 2024.</div>
       </div>
       <div class="mp-panel">
-        <h3>Bidang Teknologi yang Ditonjolkan</h3>
-        <div class="desc">Bidang yang muncul dalam program/aktiviti MBOT 2024; bukan agihan bilangan pendaftar.</div>
-        <div class="mp-fields">
-          <span class="mp-field">E&E</span><span class="mp-field">ICT</span><span class="mp-field">Green Technology</span>
-          <span class="mp-field">Manufacturing & Industrial</span><span class="mp-field">Aerospace & Aviation</span>
-          <span class="mp-field">Building & Construction</span><span class="mp-field">Oil & Gas</span>
-          <span class="mp-field">Biotechnology</span><span class="mp-field">Maritime</span>
-          <span class="mp-field">Telecommunication & Broadcasting</span>
+        <div class="mp-panel-head"><div><h3>Bidang Teknologi & Pipeline Profesional</h3><div class="desc" id="mbotFieldDesc">24 bidang teknologi diiktiraf MBOT; paparan fokus mengikut pilihan pengguna.</div></div><div class="mp-badge soft" id="mbotFieldBadge">Semua bidang</div></div>
+        <div class="mp-track-grid">
+          <div class="mp-track"><b>Laluan Teknologis</b><div class="flow"><b>56.5K</b><span>GT →</span><b>23.7K</b><span>Ts.</span></div></div>
+          <div class="mp-track"><b>Laluan Juruteknik</b><div class="flow"><b>12.2K</b><span>QT →</span><b>3.2K</b><span>Tc.</span></div></div>
         </div>
-        <div class="mp-insight"><b>Isyarat Analitik.</b> Pendaftaran MBOT berkembang pesat, tetapi kedalaman professionalisation perlu dibaca secara berasingan bagi laluan teknologis dan juruteknik. Agihan sebenar mengikut bidang memerlukan data pendaftaran MBOT yang lebih terperinci.</div>
-        <div class="mp-footnote">Sumber: Laporan Tahunan MBOT 2024.</div>
+        <div class="mp-fields" id="mbotFields">
+          <button class="mp-field" data-mbot-field="E&E">E&E</button><button class="mp-field" data-mbot-field="ICT">ICT</button>
+          <button class="mp-field" data-mbot-field="Cyber Security">Cyber Security</button><button class="mp-field" data-mbot-field="Manufacturing & Industrial">Manufacturing & Industrial</button>
+          <button class="mp-field" data-mbot-field="Green Technology">Green Technology</button><button class="mp-field" data-mbot-field="Aerospace & Aviation">Aerospace & Aviation</button>
+          <button class="mp-field" data-mbot-field="Building & Construction">Building & Construction</button><button class="mp-field" data-mbot-field="Oil & Gas">Oil & Gas</button>
+        </div>
+        <div class="mp-insight" id="mbotInsight"><b>Isyarat Analitik.</b> Pendaftaran MBOT meningkat pesat. Bagi analisis bidang yang benar-benar kuantitatif, data pendaftar berde-identiti mengikut bidang diperlukan; laporan tahunan semasa belum menyediakan siri tersebut.</div>
+        <div class="mp-footnote">Pemilihan bidang tidak mengubah siri trend kategori kerana bilangan pendaftar tahunan mengikut bidang tidak diterbitkan dalam laporan tahunan yang digunakan.</div>
       </div>
     </div>
   </div>
@@ -97,7 +119,7 @@
     <button class="mp-home-card" data-mptarget="Minat & Aspirasi STEM"><span class="mp-ico">02</span><span><strong>Minat & Aspirasi STEM</strong><span>Kecenderungan dan aspirasi kerjaya</span></span></button>
     <button class="mp-home-card" data-mptarget="Trend Prestasi SPM"><span class="mp-ico">03</span><span><strong>Trend Prestasi SPM</strong><span>Prestasi mata pelajaran dan outcome calon</span></span></button>
     <button class="mp-home-card" data-mptarget="Graduan & Pasaran Kerja"><span class="mp-ico">04</span><span><strong>Graduan & Pasaran Kerja</strong><span>Outcome graduan dan kesepadanan pekerjaan</span></span></button>
-    <button class="mp-home-card prof" data-mpprof="1"><span class="mp-ico">05</span><span><strong>Bakat Profesional</strong><span>BEM · MBOT · pipeline profesional</span></span></button>
+    <button class="mp-home-card prof" data-mpprof="1"><span class="mp-ico">05</span><span><strong>Bakat Profesional</strong><span>BEM · MBOT · trend dan pipeline profesional</span></span></button>
     <button class="mp-home-card" data-mptarget="Permintaan dan Penawaran Bakat E&E"><span class="mp-ico">06</span><span><strong>Permintaan & Penawaran Bakat E&E</strong><span>Jurang pekerjaan dan unjuran bakat</span></span></button>
     <button class="mp-home-card" data-mptarget="Foresight"><span class="mp-ico">07</span><span><strong>Foresight</strong><span>Kemahiran dan keperluan masa hadapan</span></span></button>
   </div>
