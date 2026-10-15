@@ -671,3 +671,10 @@ if TARGET.exists():
             TARGET.write_text(html, encoding="utf-8")
     except Exception:
         pass
+
+
+# Load Bakat Profesional dev patch
+try:
+    import professional_patch_loader
+except Exception as _professional_patch_error:
+    print('[professional_patch_import]', repr(_professional_patch_error))
