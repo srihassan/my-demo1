@@ -704,8 +704,14 @@ main .view:target:not(.active) { display:none !important; }
   function activate(id){
     var target=document.getElementById(id);
     if(!target || !target.classList.contains('view')) return;
-    document.querySelectorAll('.view').forEach(function(v){v.classList.remove('active');});
+    document.querySelectorAll('.view').forEach(function(v){
+      v.classList.remove('active');
+      v.style.setProperty('display','none','important');
+      v.setAttribute('aria-hidden','true');
+    });
     target.classList.add('active');
+    target.style.setProperty('display','block','important');
+    target.setAttribute('aria-hidden','false');
     document.querySelectorAll('#topnav [data-view]').forEach(function(a){
       a.classList.toggle('active',a.getAttribute('data-view')===id);
     });
