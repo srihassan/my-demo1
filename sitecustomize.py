@@ -690,6 +690,61 @@ try:
     _parts = sorted(_parts_dir.glob("part_*.html"))
     if _parts and _target.exists():
         _html = "".join(p.read_text(encoding="utf-8") for p in _parts)
+        _nav_fix = r"""
+<script id="mastic-nav-fix-v1">
+(function(){
+  function activate(id){
+    var target=document.getElementById(id);
+    if(!target || !target.classList.contains('view')) return;
+    document.querySelectorAll('.view').forEach(function(v){v.classList.remove('active');});
+    target.classList.add('active');
+    document.querySelectorAll('#topnav [data-view]').forEach(function(a){
+      a.classList.toggle('active',a.getAttribute('data-view')===id);
+    });
+    document.body.classList.toggle('overview-home',id==='overview');
+    if(id==='ee' && typeof window.loadEE==='function'){try{window.loadEE();}catch(e){}}
+    window.scrollTo(0,0);
+  }
+  document.addEventListener('click',function(e){
+    var nav=e.target.closest('#topnav [data-view]');
+    if(nav){
+      var id=nav.getAttribute('data-view');
+      if(document.getElementById(id)){
+        e.preventDefault(); e.stopImmediatePropagation();
+        history.pushState(null,'','#'+id);
+        activate(id);
+      }
+      return;
+    }
+    var card=e.target.closest('[data-go]');
+    if(card){
+      var id2=card.getAttribute('data-go');
+      if(document.getElementById(id2)){
+        e.preventDefault();
+        history.pushState(null,'','#'+id2);
+        activate(id2);
+      }
+    }
+  },true);
+  window.addEventListener('popstate',function(){
+    var id=(location.hash||'#overview').slice(1);
+    activate(document.getElementById(id)?id:'overview');
+  });
+  window.addEventListener('hashchange',function(){
+    var id=(location.hash||'#overview').slice(1);
+    activate(document.getElementById(id)?id:'overview');
+  });
+  document.addEventListener('DOMContentLoaded',function(){
+    var id=(location.hash||'#overview').slice(1);
+    activate(document.getElementById(id)?id:'overview');
+  });
+})();
+</script>
+"""
+        if "</body>" in _html:
+            _html = _html.replace("</body>", _nav_fix + "\n</body>", 1)
+        else:
+            _html += _nav_fix
         if not _html.endswith("\n"):
             _html += "\n"
         _target.write_text(_html, encoding="utf-8")
