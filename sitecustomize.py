@@ -691,6 +691,14 @@ try:
     if _parts and _target.exists():
         _html = "".join(p.read_text(encoding="utf-8") for p in _parts)
         _nav_fix = r"""
+<style id="mastic-single-view-fix-v1">
+main > .view,
+main .view { display:none !important; }
+main > .view.active,
+main .view.active { display:block !important; }
+main > .view:target:not(.active),
+main .view:target:not(.active) { display:none !important; }
+</style>
 <script id="mastic-nav-fix-v1">
 (function(){
   function activate(id){
