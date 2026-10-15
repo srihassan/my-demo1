@@ -750,3 +750,17 @@ try:
         _target.write_text(_html, encoding="utf-8")
 except Exception as _deploy_exact_error:
     print("[deploy_exact_upload_v19]", repr(_deploy_exact_error))
+
+
+# DEPLOY_RUNTIME_DIAG_V1
+try:
+    from pathlib import Path as _DiagPath
+    _diag_target = _DiagPath("Ask_MASTIC_V11_RENDER_SAFE") / "platform" / "index.html"
+    if _diag_target.exists():
+        _diag_html = _diag_target.read_text(encoding="utf-8", errors="ignore")
+        _views = [x for x in ("overview","i360","impact","spm","skpg","professional","ee","foresight","sources") if ('id="' + x + '"') in _diag_html]
+        print("[DEPLOY_RUNTIME_DIAG_V1] target_exists=1 bytes=%d views=%s navfix=%d" % (len(_diag_html), ",".join(_views), int("mastic-nav-fix-v1" in _diag_html)))
+    else:
+        print("[DEPLOY_RUNTIME_DIAG_V1] target_exists=0")
+except Exception as _diag_error:
+    print("[DEPLOY_RUNTIME_DIAG_V1] error", repr(_diag_error))
