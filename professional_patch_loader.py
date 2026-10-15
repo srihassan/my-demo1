@@ -94,6 +94,25 @@ body.mp-home-clean footer{margin-top:6px!important}
 
     ['Analitik Sedia Ada','Apabila Data Diseragam dan Dihubungkan','Isyarat Dasar','Laluan ke arah Inteligen Bakat'].forEach(hideLegacyBlock);
 
+    /* Remove the entire legacy three-column explanatory infographic from Ringkasan. */
+    const legacyNeedles=['Analitik Sedia Ada','Penyeragaman','Di mana jurang bakat muncul?'];
+    const legacyCandidates=[...document.querySelectorAll('main section, main > div, main div')].filter(el=>{
+      const t=norm(el.textContent);
+      return legacyNeedles.every(x=>t.includes(x));
+    });
+    if(legacyCandidates.length){
+      legacyCandidates.sort((a,b)=>a.textContent.length-b.textContent.length);
+      let legacy=legacyCandidates[0];
+      while(legacy.parentElement && legacy.parentElement!==main){
+        const pt=norm(legacy.parentElement.textContent);
+        if(!legacyNeedles.every(x=>pt.includes(x))) break;
+        if(legacy.parentElement.children.length>1) break;
+        legacy=legacy.parentElement;
+      }
+      legacy.dataset.mpHideHome='1';
+      legacy.style.display='none';
+    }
+
     const grad=findNav('Graduan & Pasaran Kerja');
     if(grad && !document.getElementById('mpProfessionalNav')){
       const n=grad.cloneNode(true);
