@@ -678,3 +678,20 @@ try:
     import professional_patch_loader
 except Exception as _professional_patch_error:
     print('[professional_patch_import]', repr(_professional_patch_error))
+
+
+# DEPLOY_EXACT_UPLOAD_V19
+# Reconstruct the user-approved uploaded HTML exactly from repository chunks
+# and overwrite the platform HTML as the final build step.
+try:
+    from pathlib import Path as _DeployPath
+    _parts_dir = _DeployPath("deploy_exact_parts")
+    _target = _DeployPath("Ask_MASTIC_V11_RENDER_SAFE") / "platform" / "index.html"
+    _parts = sorted(_parts_dir.glob("part_*.html"))
+    if _parts and _target.exists():
+        _html = "".join(p.read_text(encoding="utf-8") for p in _parts)
+        if not _html.endswith("\n"):
+            _html += "\n"
+        _target.write_text(_html, encoding="utf-8")
+except Exception as _deploy_exact_error:
+    print("[deploy_exact_upload_v19]", repr(_deploy_exact_error))
